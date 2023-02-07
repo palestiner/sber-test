@@ -1,4 +1,4 @@
-package org.interview;
+package org.interview.sbertest;
 
 public class Main {
 
