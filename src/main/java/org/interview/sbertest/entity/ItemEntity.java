@@ -2,16 +2,15 @@ package org.interview.sbertest.entity;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
+import org.interview.sbertest.listener.PostPersistItemEntityListener;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 @Entity
+@EntityListeners(PostPersistItemEntityListener.class)
 public class ItemEntity {
 
     @Id
