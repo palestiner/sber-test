@@ -5,13 +5,15 @@
              version="2.0">
     <persistence-unit name="org.interview.sbertest">
         <description>Hibernate EntityManager Demo</description>
-<!--        <class></class>-->
+        <class>org.interview.sbertest.entity.ItemEntity</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.dialect"
                       value="org.hibernate.dialect.H2Dialect"/>
             <property name="hibernate.hbm2ddl.auto"
                       value="update"/>
+            <property name="hibernate.show_sql"
+                      value="true"/>
             <property name="javax.persistence.jdbc.driver"
                       value="org.h2.Driver"/>
             <property name="javax.persistence.jdbc.url"
