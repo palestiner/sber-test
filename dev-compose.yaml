@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  postgres:
+    container_name: dev-test-db
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: test
+      POSTGRES_USER: test
+      POSTGRES_DB: test
+    volumes:
+      - ./init_schema.sql:/docker-entrypoint-initdb.d/1-init.sql
+    ports:
+      - "5432:5432"

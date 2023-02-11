@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  postgres:
+    container_name: sber-test-db
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: test
+      POSTGRES_USER: test
+      POSTGRES_DB: test
+    volumes:
+      - ./init_schema.sql:/docker-entrypoint-initdb.d/1-init.sql
+  app:
+    container_name: sber-test-app
+    depends_on:
+      - postgres
+    build: .
+    restart: always
+    environment:
+      JDBC_URL: jdbc:postgresql://postgres:5432/test
